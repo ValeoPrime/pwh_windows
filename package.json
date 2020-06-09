@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Valentin",
   "license": "ISC",
   "browserslist": [
     "> 1%",
@@ -23,5 +23,9 @@
     "gulp": "^4.0.2",
     "webpack": "^4.41.2",
     "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "slick-carousel": "^1.8.1"
   }
 }

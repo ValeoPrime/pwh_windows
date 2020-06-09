@@ -23,12 +23,11 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
         showTabContent()
 
         header.addEventListener('click', (e) => {
-            const target = e.target
 
-            if(target.classList.contains(tabSelector.replace(/\./, '')) || 
-            target.parentNode.classList.contains(tabSelector.replace(/\./, ''))){
+            if(e.target.classList.contains(tabSelector.slice(1)) || 
+            e.target.parentNode.classList.contains(tabSelector.replace(/\./, ''))){//Убираем точку функцией реплейс иначе контаинс не подхватит название класc либо можно реализовать через слайс
                 tabs.forEach((item, i) => {
-                    if(target == item || target.parentNode == item) {
+                    if(e.target == item || e.target.parentNode == item) {
                         hideTabContent()
                         showTabContent(i)
                     }

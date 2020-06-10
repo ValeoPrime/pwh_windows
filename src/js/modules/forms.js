@@ -1,13 +1,10 @@
-const forms = () => {
+import checkNumInputs from './checkNumInputs'
+
+const forms = (state) => {
     const AllForms = document.querySelectorAll('form')
     const inputs = document.querySelectorAll('input')
-    const phoneInputs = document.querySelectorAll('input[name="user_phone"]')
 
-    phoneInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/\D/, '') //Фильтрация ввода, регулярка заменит все кроме цифр на пустое место
-        })
-    })
+    checkNumInputs('input[name="user_phone"]')//Фильтрация ввода, регулярка заменяет все кроме цифр на пустое место
 
     const message = {
         loading: 'Загрузка...',
@@ -23,7 +20,7 @@ const forms = () => {
             body: data
         })
 
-        return await res.texy()
+        return await res.text()
     }
 
     const clearInputs = () => {
@@ -42,11 +39,20 @@ const forms = () => {
             item.appendChild(messageStatus)
             //end
 
+            console.log('Атрибут айтема', item.getAttribute("data-calc"));
+            
             const formData = new FormData(item)
+            if(item.getAttribute('data-calc') === 'end') { // Когда отправляем последнюю форму закидываем в форм дата обьект собранных данных
+                
+                for(let key in state) {
+                    formData.append(key, state[key]) //Запись в форм дата ключа и свойства их стейта по ключу
+                }
+
+            }
 
             postData('assets/server.php', formData)
                 .then(res => {
-                    console.log(res);
+                    console.log('Ответ сервера',res);
                     messageStatus.textContent = message.success
                 })
                 .catch((e) => {

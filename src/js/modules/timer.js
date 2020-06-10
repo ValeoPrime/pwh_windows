@@ -28,7 +28,8 @@ const timer = (id, dedline) => {
         const seconds = timer.querySelector("#seconds")
         const timeInterval = setInterval( updateClock, 1000)
 
-
+        updateClock()
+        
         function updateClock() {
             const t = getRemainingTime(endtime)
 

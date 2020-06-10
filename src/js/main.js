@@ -4,6 +4,7 @@ import tabs from './modules/tabs'
 import forms from './modules/forms'
 import changeModalState from './modules/modalState'
 import timer from './modules/timer'
+import bigImage from './modules/images'
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict'
@@ -21,4 +22,5 @@ window.addEventListener('DOMContentLoaded', () => {
     modals(modalState)
 
     timer('.container1', deadLine)
+    bigImage('.works')
 })

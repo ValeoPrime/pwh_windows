@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     'use strict'
 
     let modalState = {}
+    let deadLine = '2020-08-01'
 
     changeModalState(modalState)
 
@@ -18,4 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
     tabs('.balcon_icons', '.balcon_icons_img', '.big_img > img', 'do_image_more', 'inline')
     forms(modalState)
     modals(modalState)
+
+    timer('.container1', deadLine)
 })

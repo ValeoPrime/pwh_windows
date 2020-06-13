@@ -47,11 +47,5 @@ const changeModalState = (state) => {
 
 }
 
-// if(elems.length > 1 ) {
-//     state[prop] = i
-//     console.log(state);
-// } else {
-//     state[prop] = item.value
-// }
 
 export default changeModalState
